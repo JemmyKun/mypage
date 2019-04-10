@@ -11,7 +11,13 @@ let list = Mock.mock(url.getList, {
     "data|10": [
       {
         "key|+1": 1,
-        "title|1": ["test", "react", "study", "mock", "初学者"],
+        "title|1": [
+          "study-python",
+          "study-redux",
+          "redux-saga",
+          "front-end",
+          "初学者"
+        ],
         "content|1": [
           "你翻译不了我的声响",
           "数码宝贝主题曲",

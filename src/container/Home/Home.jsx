@@ -1,7 +1,7 @@
 import React from 'react';
-import axios from 'axios';
 import {Table} from 'antd';
 import '../../mock/home';
+import * as Apis from '../../api/home';
 
 class Home extends React.Component {
     constructor(props) {
@@ -14,18 +14,41 @@ class Home extends React.Component {
         }
     }
     componentDidMount() {
+        console.log('componentDidMount!!');
         this.getList();
     }
-
+    static getDerivedStateFromProps(props,state){
+        console.log('getDerivedStateFromProps!',props,state);
+        return null
+    }
+    getSnapshotBeforeUpdate(prevProps, preState){
+        console.log('getSnapshotBeforeUpdate!',prevProps,preState);
+        return null
+    }
+    shouldComponentUpdate(){
+       console.log('shouldComponentUpdate!');
+       return true;
+    }
+    componentDidUpdate(){
+        console.log('componentDidUpdate!');
+    }
+    componentDidCatch(err){
+       console.log('err:',err);
+    }
     getList() {
         this.setState({
             loading:true
         });
-        axios.get('/api/getList').then(res => {
+        Apis.getList().then(res => {
             let list = res.data.content;
             console.log('list:',list);
             this.setState({
                 list,
+                loading:false
+            })
+        }).catch(err=>{
+            console.log(err);
+            this.setState({
                 loading:false
             })
         })
@@ -44,6 +67,7 @@ class Home extends React.Component {
 		);
 	}
     render() {
+        console.log('render!!!');
         const {list,loading,pageNum,pageSize} = this.state;
         const columns = [{
             title: '编号',
