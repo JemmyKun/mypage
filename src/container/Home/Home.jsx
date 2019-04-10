@@ -17,10 +17,15 @@ class Home extends React.Component {
         console.log('componentDidMount!!');
         this.getList();
     }
+
+    // getDerivedStateFromProps是一个静态方法，this为undefined，不指向实例，所以也拿不到实例的属性和方法。
+    // 官方文档解释：以后的组件将进行异步渲染，防止实例属性的被不安全访问，编写出异步兼容的代码
     static getDerivedStateFromProps(props,state){
+        console.log('this',this);
         console.log('getDerivedStateFromProps!',props,state);
         return null
     }
+    
     getSnapshotBeforeUpdate(prevProps, preState){
         console.log('getSnapshotBeforeUpdate!',prevProps,preState);
         return null
