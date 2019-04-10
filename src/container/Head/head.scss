@@ -1,0 +1,29 @@
+.app-header {
+  height: 70px;
+  line-height: 70px;
+  background: #1e9fff;
+  color: #fff;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  .app-logo {
+    width: 300px;
+  }
+  .link-box {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    .link-item {
+      width: 120px;
+      text-align: center;
+      cursor: pointer;
+      &.active {
+        background: #5fb878;
+        color: #fff;
+      }
+      &:hover {
+        color: #5fb878;
+      }
+    }
+  }
+}

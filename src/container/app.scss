@@ -1,0 +1,12 @@
+@import "./rest.scss";
+html,
+body {
+  background: #fff;
+  height: 100%;
+  #root {
+    height: 100%;
+    .app-container {
+      height: 100%;
+    }
+  }
+}
